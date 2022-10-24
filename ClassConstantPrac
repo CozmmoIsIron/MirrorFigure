@@ -1,0 +1,56 @@
+package com.company;
+
+public class Figure {
+    public static final int MirrorSize = 3;
+    public static  void  TBrow() {  //loop that prints the very top and bottom rows
+        System.out.print("#");
+        for (int topart =1; topart<= MirrorSize *4; topart++) {
+            System.out.print("=");
+        }
+        System.out.println("#");
+    }
+    public static void TopHalf() {  // prints top half of figure
+        for (int line = 1; line <= MirrorSize; line++) {
+            System.out.print("|");
+            for (int space = 1; space <= (line * -2 + (2*MirrorSize)); space++)
+            {
+                System.out.print(" ");
+            }
+            System.out.print("<>");
+            for (int dot = 1; dot <= (line * 4 - 4); dot++) {
+                System.out.print(".");
+            }
+            System.out.print("<>");
+            for (int space = 1; space <= (line * -2 + (2*MirrorSize)); space++)
+            {
+                System.out.print(" ");
+            }
+            System.out.println("|");
+        }
+    }
+    public static void BottomHalf () { // prints bottom half of figure
+        for (int BottomHalf = MirrorSize; BottomHalf >= 1; BottomHalf--) {
+            System.out.print("|");
+            for (int space = (MirrorSize - BottomHalf); space >= 1; space--) {
+                System.out.print(" ");
+            }
+            System.out.print("<>");
+            for (int dot = MirrorSize - 2; dot >= (MirrorSize - BottomHalf); dot--) {
+                System.out.print("....");
+            }
+            System.out.print("<>");
+            for (int space = (MirrorSize - BottomHalf); space >= 1; space--) {
+                System.out.print(" ");
+            }
+            System.out.println("|");
+        }
+    }
+
+    public static void main(String[] args) {
+    TBrow(); // method call to print top row
+        TopHalf(); //method call to print bottom half
+        BottomHalf(); //method call to print bottom half of figure
+        TBrow(); //method call to print bottom half
+
+}
+}
